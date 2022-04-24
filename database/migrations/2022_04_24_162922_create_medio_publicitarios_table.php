@@ -15,6 +15,15 @@ class CreateMedioPublicitariosTable extends Migration
     {
         Schema::create('medio_publicitarios', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('creador_id')->nullable();
+            $table->foreign('creador_id')->references('id')->on('users');
+            $table->unsignedBigInteger('modificador_id')->nullable();
+            $table->foreign('modificador_id')->references('id')->on('users');
+            $table->unsignedBigInteger('eliminador_id')->nullable();
+            $table->foreign('eliminador_id')->references('id')->on('users');
+            $table->text('descripcion')->nullable();
+            $table->string('estado')->nullable();
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipoCampaniasTable extends Migration
+class CreateMedioSeguimientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateTipoCampaniasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_campanias', function (Blueprint $table) {
+        Schema::create('medio_seguimientos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('creador_id')->nullable();
             $table->foreign('creador_id')->references('id')->on('users');
             $table->unsignedBigInteger('modificador_id')->nullable();
             $table->foreign('modificador_id')->references('id')->on('users');
-            $table->unsignedBigInteger('eliminador')->nullable();
-            $table->unsignedBigInteger('campania_id')->nullable();
-            $table->foreign('campania_id')->references('id')->on('campania');
-            $table->string('estadp')->nullable();
+            $table->unsignedBigInteger('eliminador_id')->nullable();
+            $table->foreign('eliminador_id')->references('id')->on('users');
+            $table->string('nombre',45)->nullable();
+            $table->string('descripcion',45)->nullable();
+            $table->string('estado')->nullable();
             $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
@@ -35,6 +36,6 @@ class CreateTipoCampaniasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_campanias');
+        Schema::dropIfExists('medio_seguimientos');
     }
 }
