@@ -23,3 +23,8 @@ Route::get('/', function () {
 
 // Route::get('/', 'SocialController@inicio');
 
+// CAMPANIA
+Route::get('Campania/Listado', 'CampaniaController@listado');
+Route::post('Campania/guarda', 'CampaniaController@guarda');
+Route::post('Campania/ajaxListado', 'CampaniaController@ajaxListado');
+Route::get('Campania/formulario', 'CampaniaController@formulario');

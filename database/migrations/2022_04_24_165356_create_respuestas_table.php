@@ -21,8 +21,6 @@ class CreateRespuestasTable extends Migration
             $table->foreign('modificador_id')->references('id')->on('users');
             $table->unsignedBigInteger('eliminador_id')->nullable();
             $table->foreign('eliminador_id')->references('id')->on('users');
-            // $table->unsignedBigInteger('oportunidad_id')->nullable();
-            // $table->foreign('oportunidad_id')->references('id')->on('oportunidades');
             $table->text('respuesta')->nullable();
             $table->string('estado')->nullable();
             $table->datetime('deleted_at')->nullable();

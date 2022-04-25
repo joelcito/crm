@@ -25,8 +25,6 @@ class CreateFormulariosTable extends Migration
             $table->foreign('componente_id')->references('id')->on('componentes');
             $table->unsignedBigInteger('respuesta_id')->nullable();
             $table->foreign('respuesta_id')->references('id')->on('respuestas');
-            // $table->unsignedBigInteger('asignacion_id')->nullable();
-            // $table->foreign('asignacion_id')->references('id')->on('asignaciones');
             $table->unsignedBigInteger('campania_id')->nullable();
             $table->foreign('campania_id')->references('id')->on('campanias');
             $table->string('requirido',1)->nullable();
