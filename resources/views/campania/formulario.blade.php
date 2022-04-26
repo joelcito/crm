@@ -359,7 +359,7 @@ p {
                               <div>
                                   <input type="email" id="email" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
                                   <p style="padding: 2px"></p>
-                                  <textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" rows="10"></textarea>
+                                  <textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" ></textarea>
                               </div>
                             </h1>
                         </div>
@@ -380,14 +380,15 @@ p {
                       <div class="col-md-12">
                         <div class="title">
                           {{-- <div class="border"></div> --}}
-                          <h1>
+                          {{-- <h1> --}}
+                        <div style="padding: 25px;">
                             <div class="row">
                               <div class="col-md-9">
                                 <input type="email" id="email" class="boredes-cajas" placeholder="Nombre de la pregunta"/>
                               </div>
                               <div class="col-md-3">
                                 <select name="" id="" class="form-control" onchange="addComponent(this)">
-                                  <option value="Select">Seleccion Unica</option>
+                                  <option value="select">Seleccion Unica</option>
                                   <option value="checkbox">Seleccion Multiple</option>
                                   <option value="input">Respuesta Corta</option>
                                   <option value="taxtarea">Respuesta Largo</option>
@@ -405,11 +406,31 @@ p {
                                 <div id="component">
 
                                 </div>
+                                {{-- <p style="padding: 1px"></p> --}}
+                                <hr>
+                                <div class="footer">
+                                    <div class="row">
+                                        <div class="col-md-5">
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                        </div>
+                                        <div class="col-md-1 float-right">
+                                            <button class="btn btn-outline-success btn-circle btn-sm" onclick="addBlock()"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
                             </div>
-                          </h1>
+                        </div>
+                          {{-- </h1> --}}
                       </div>
                       </div>
+                    </div>
+
+                    <div id="cuerpos_form">
+
                     </div>
 
 
@@ -486,11 +507,12 @@ p {
             }
         });
 
-        showQuestions();
+        // showQuestions();
 
     });
 
     function addComponent(select){
+        console.log("entre a ddd");
 
       console.log(select.value);
 
@@ -500,19 +522,111 @@ p {
 
     function addComponentInput(type){
 
-      if(type == 'input'){
-        
-      }else if(){
+        console.log(type);
 
-      }else if(){
+        if(type == 'input'){
+            var component =  '<input type="text" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
+        }else if(type == 'select'){
+            var component =  '<ul  id="select_lista"><li><input type="text" class="boredes-cajas" value="Opcion 1"/></li></ul><button class="text-info" style="border:none;outline: none;" onclick="addOptionSelect()">Adicionar opcion</button>';
+        }else if(type == 'taxtarea'){
+            var component =  '<textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="Respuesta Larga"></textarea>';
+        }else if(type == 'file'){
+            var component =  '<div class="row"><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Cantidad de archivos requeridos"/></div><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Tamaño maximo del archivo"/></div></div>';
+        }else{
+            var component =  '<ul  id="check_lista"><li><input type="text" class="boredes-cajas" value="Check 1"/></li></ul><button class="text-info" style="border:none;outline: none;" onclick="addOptionCheck()">Adicionar opcion</button>';
+        }
 
-      }
-
-      // var component =  '<input type="text" id="text" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
-
-      // $('#component').html(component);
+        $('#component').html(component);
 
     }
+
+    var cantaddOptionSelect = 1;
+
+    function addOptionSelect(){
+
+        cantaddOptionSelect++;
+
+        const listid = "select_lista";
+
+        const optionid = "option_"+cantaddOptionSelect;
+
+        $("#select_lista").append("<li id="+optionid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Opcion "+cantaddOptionSelect+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItem("+listid.toString()+","+optionid.toString()+")'></i></div></div></li>");
+
+    }
+
+    function removeItem(listid, li) {
+
+        console.log("entre a remove li");
+
+        console.log(listid);
+        console.log(li);
+        console.log(li.id);
+ 
+        // Declaring a variable to get select element
+        // var a = document.getElementById("list");
+        // var candidate = document.getElementById("candidate");
+        // var item = document.getElementById(candidate.value);
+        // a.removeChild(item);
+
+        // listid.removeChild(li.id);
+        listid.removeChild(li);
+    }
+
+    var cantaddOptionCheck = 1;
+
+    function addOptionCheck(){
+
+        cantaddOptionCheck++;
+
+        const listidCheck = "check_lista";
+
+        const optionCheckid = "optionCehck_"+cantaddOptionCheck;
+
+        $("#check_lista").append("<li id="+optionCheckid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Check "+cantaddOptionCheck+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItemCheck("+listidCheck.toString()+","+optionCheckid.toString()+")'></i></div></div></li>");
+    }
+
+    function removeItemCheck(listid, li) {
+
+        console.log("entre a remove li");
+
+        console.log(listid);
+        console.log(li);
+        console.log(li.id);
+
+        listid.removeChild(li);
+    }
+
+    function addBlock(){
+
+    }
+
+
+
+    // ✅ Create element
+    const el = document.createElement('div');
+
+    el.addEventListener('click', function handleClick(event) {
+        console.log('element clicked 🎉🎉🎉', event);
+    });
+
+    // ✅ Add text content to element
+    el.textContent = 'Hello world';
+
+    // ✅ Or set the innerHTML of the element
+    // el.innerHTML = `<span>Hello world</span>`;
+
+    el.style.backgroundColor = 'salmon';
+    el.style.width = '150px';
+    el.style.height = '150px';
+
+    // ✅ add element to DOM
+    const box = document.getElementById('cuerpos_form');
+    box.appendChild(el);
+
+
+
+
+
 
 
 //     var Questions = [
