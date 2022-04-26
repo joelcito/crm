@@ -75,6 +75,12 @@ class CampaniaController extends Controller
         
     }
 
+    public function guardaFormulario(Request $request){
+
+        dd($request->all());
+        
+    }
+
     // public function index()
     // {
     //     //

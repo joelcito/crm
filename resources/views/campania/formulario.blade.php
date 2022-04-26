@@ -236,6 +236,25 @@ ol .red {
 
 
 
+
+
+
+/* .s1 {
+  height: auto;
+  border: 1px solid red;
+  margin: 5px 0 5px 0;
+}
+
+.s2 {
+  height: 20px;
+  border: 1px dotted blue;
+  margin: 5px 0 5px 0;
+} */
+
+
+
+
+
   /* *{
     box-sizing: border-box;
 }
@@ -336,58 +355,36 @@ p {
                         <div class="col-md-3"></div>
                         <div class="col-md-3"></div>
                         <div class="col-md-3">
-                            {{-- <button class="btn btn-success"  data-toggle="modal" onclick="abreModal()"><i class="fa fa-plus"></i> Nueva Campaña</button> --}}
-                            {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
-                                Launch Large Modal
-                            </button> --}}
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    {{-- <div class="question">
-                        <div class="description_class">
-                            <input  type="text" name="Title" value="Title" id="title">
-                            <textarea id="discpn" type="text" name="Description" placeholder="Form description"
-                                rows="1"></textarea>
-                        </div>
-                    </div> --}}
+                  {{-- <form action="{{ url('Campania/guardaFormulario') }}" method="post" > --}}
+                    @csrf
                     <div class="row">
                       <div class="col-md-12">
                         <div class="title">
                             <div class="border"></div>
                             <h1>
                               <div>
-                                  <input type="email" id="email" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
+                                  <input type="text" id="text" name="nombre_formulario" id="nombre_formulario" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
                                   <p style="padding: 2px"></p>
-                                  <textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" ></textarea>
+                                  <textarea class="boredes-cajas" name="descripcion_formulario" id="descripcion_formulario" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" ></textarea>
                               </div>
                             </h1>
                         </div>
-
-                        {{-- <form id="test" class="test">
-                            <ol class="listOfQuestions" id="listOfQuestions">
-                            
-                            </ol>
-                            <div class="submition">
-                              <input type="submit" value="Afficher le resultat">
-                              <input type="reset" value="Reset" >
-                            </div>
-                        </form> --}}
-
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="title">
-                          {{-- <div class="border"></div> --}}
-                          {{-- <h1> --}}
-                        <div style="padding: 25px;">
+                          <div style="padding: 25px;">
                             <div class="row">
                               <div class="col-md-9">
-                                <input type="email" id="email" class="boredes-cajas" placeholder="Nombre de la pregunta"/>
+                                <input type="text" id="nombre_pregunta" name="nombre_pregunta" class="boredes-cajas" placeholder="Nombre de la pregunta"/>
                               </div>
                               <div class="col-md-3">
-                                <select name="" id="" class="form-control" onchange="addComponent(this)">
+                                <select name="" id="" class="form-control" onchange="addComponent(this,1)">
                                   <option value="select">Seleccion Unica</option>
                                   <option value="checkbox">Seleccion Multiple</option>
                                   <option value="input">Respuesta Corta</option>
@@ -395,18 +392,13 @@ p {
                                   <option value="file">Adjuntar Archivo</option>
                                 </select>
                               </div>
-
-                                {{-- <input type="email" id="email" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
-                                <p style="padding: 2px"></p>
-                                <textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" rows="10"></textarea> --}}
                             </div>
                             <div class="row">
                               <div class="col-md-12">
                                 <p style="padding: 2px"></p>
-                                <div id="component">
+                                <div id="component_1">
 
                                 </div>
-                                {{-- <p style="padding: 1px"></p> --}}
                                 <hr>
                                 <div class="footer">
                                     <div class="row">
@@ -417,79 +409,25 @@ p {
 
                                         </div>
                                         <div class="col-md-1 float-right">
-                                            <button class="btn btn-outline-success btn-circle btn-sm" onclick="addBlock()"><i class="fa fa-plus"></i></button>
+                                            <button type="button" class="btn btn-outline-success btn-circle btn-sm" onclick="addBlock()"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                 </div>
                               </div>
                             </div>
+                          </div>
                         </div>
-                          {{-- </h1> --}}
-                      </div>
                       </div>
                     </div>
-
-                    <div id="cuerpos_form">
-
+                    <div id="cuerpos_form" class="sortable1">
                     </div>
-
-
-                    {{-- <div class="container" id="header">
-                      <div class="top-header">
-                          <p class="top">FCC Survey Form</p>
-                      </div>
-                      
-              
-                      <div class="form-control">
-                          <label for="username">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" />
-                      </div>
-                      <div class="form-control">
-                          <label for="username">Email</label>
-                        <input type="email" id="email" placeholder="Your Email" />
-                      </div>
-                      <div class="form-control">
-                          <label for="username">Age</label>
-                        <input type="number" id="age" placeholder="Your Age" />
-                      </div>
-                      <div class="form-control">
-                          <label for="username">Wiich option best describes your current role?</label>
-              
-                        <select name="role" id="role">
-                            <option value="student">Student</option>
-                            <option value="fulltime">Full Time Job</option>
-                            <option value="fulltimelearner">Full Time Learner</option>
-                            <option value="prefernot">Prefer Not To Say</option>
-                            <option value="others">Others</option>
-                        </select>
-                      </div>
-                      <div class="form-control">
-                          <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="Enter username" />
-                      </div>
-                      <div class="form-control">
-                          <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="Enter username" />
-                      </div>
-                    </div> --}}
                     <hr>
-                    <br><br>
-
-                    {{-- <div class="title">
-                        <div class="border"></div>
-                        <h1>
-                          QCM:Javascript - Events et DOM 
-                        </h1>
-                    </div>
-                   <form id="test" class="test">
-                      <ol class="listOfQuestions" id="listOfQuestions">
-                      
-                      </ol>
-                      <div class="submition">
-                         <input type="submit" value="Afficher le resultat">
-                         <input type="reset" value="Reset" >
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button class="btn btn-outline-success btn-circle btn-block">GENERAR FORMULARIO</button>
                       </div>
-                   </form> --}}
+                    </div>
+                  {{-- </form> --}}
                 </div>
             </div>
         </div>
@@ -511,46 +449,51 @@ p {
 
     });
 
-    function addComponent(select){
+    function addComponent(select, bloque){
         console.log("entre a ddd");
 
       console.log(select.value);
 
-      addComponentInput(select.value);
+      addComponentInput(select.value, bloque);
 
     }
 
-    function addComponentInput(type){
+    function addComponentInput(type, bloque){
 
         console.log(type);
 
         if(type == 'input'){
             var component =  '<input type="text" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
         }else if(type == 'select'){
-            var component =  '<ul  id="select_lista"><li><input type="text" class="boredes-cajas" value="Opcion 1"/></li></ul><button class="text-info" style="border:none;outline: none;" onclick="addOptionSelect()">Adicionar opcion</button>';
+            var component =  '<ul  id="select_lista_'+bloque+'"><li><input type="text" class="boredes-cajas" value="Opcion 1"/></li></ul><button type="button" class="text-info" style="border:none;outline: none;" onclick="addOptionSelect('+bloque+')">Adicionar opcion</button>';
         }else if(type == 'taxtarea'){
             var component =  '<textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="Respuesta Larga"></textarea>';
         }else if(type == 'file'){
             var component =  '<div class="row"><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Cantidad de archivos requeridos"/></div><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Tamaño maximo del archivo"/></div></div>';
         }else{
-            var component =  '<ul  id="check_lista"><li><input type="text" class="boredes-cajas" value="Check 1"/></li></ul><button class="text-info" style="border:none;outline: none;" onclick="addOptionCheck()">Adicionar opcion</button>';
+            var component =  '<ul  id="check_lista_'+bloque+'"><li><input type="text" class="boredes-cajas" value="Check 1"/></li></ul><button type="button"  class="text-info" style="border:none;outline: none;" onclick="addOptionCheck('+bloque+')">Adicionar Check</button>';
         }
 
-        $('#component').html(component);
+        $('#component_'+bloque).html(component);
 
     }
 
     var cantaddOptionSelect = 1;
 
-    function addOptionSelect(){
+    function addOptionSelect(bloque){
 
-        cantaddOptionSelect++;
+      console.log("apretaste add optin select");
 
-        const listid = "select_lista";
+      cantaddOptionSelect++;
 
-        const optionid = "option_"+cantaddOptionSelect;
+      const listid = "select_lista_"+bloque;
 
-        $("#select_lista").append("<li id="+optionid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Opcion "+cantaddOptionSelect+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItem("+listid.toString()+","+optionid.toString()+")'></i></div></div></li>");
+      const optionid = "option_"+cantaddOptionSelect;
+
+      $("#select_lista_"+bloque).append("<li id="+optionid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Opcion "+cantaddOptionSelect+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItem("+listid.toString()+","+optionid.toString()+")'></i></div></div></li>");
+
+      console.log(listid);
+      console.log(optionid);
 
     }
 
@@ -574,15 +517,15 @@ p {
 
     var cantaddOptionCheck = 1;
 
-    function addOptionCheck(){
+    function addOptionCheck(bloque){
 
         cantaddOptionCheck++;
 
-        const listidCheck = "check_lista";
+        const listidCheck = "check_lista_"+bloque;
 
         const optionCheckid = "optionCehck_"+cantaddOptionCheck;
 
-        $("#check_lista").append("<li id="+optionCheckid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Check "+cantaddOptionCheck+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItemCheck("+listidCheck.toString()+","+optionCheckid.toString()+")'></i></div></div></li>");
+        $("#check_lista_"+bloque).append("<li id="+optionCheckid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Check "+cantaddOptionCheck+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItemCheck("+listidCheck.toString()+","+optionCheckid.toString()+")'></i></div></div></li>");
     }
 
     function removeItemCheck(listid, li) {
@@ -596,32 +539,136 @@ p {
         listid.removeChild(li);
     }
 
+    var cantaddBlock = 2;
+
     function addBlock(){
 
+      // ✅ Create element
+      const el = document.createElement('div');
+
+      el.addEventListener('click', function handleClick(event) {
+          console.log('element clicked 🎉🎉🎉', event);
+      });
+
+      // ✅ Add text content to element
+      // var content = "<input type='text' class='form-control'/>"
+      // el.textContent = content;
+
+      // ✅ Or set the innerHTML of the element
+      // el.innerHTML = `<span>Hello world</span>`;
+      // el.innerHTML = `<input type="text" class="form-control"/>`;
+      var dato = '<div class="row s1" id="bloque_'+cantaddBlock+'">'+
+                    '<div class="col-md-12">'+
+                      '<div class="title">'+
+                        '<div style="padding: 25px;">'+
+                          '<div class="row">'+
+                            '<div class="col-md-9">'+
+                              '<input type="email" id="email" class="boredes-cajas" placeholder="Nombre de la pregunta"/>'+
+                            '</div>'+
+                            '<div class="col-md-3">'+
+                              '<select name="" id="" class="form-control" onchange="addComponent(this, '+cantaddBlock+')">'+
+                                '<option value="select">Seleccion Unica</option>'+
+                                '<option value="checkbox">Seleccion Multiple</option>'+
+                                '<option value="input">Respuesta Corta</option>'+
+                                '<option value="taxtarea">Respuesta Largo</option>'+
+                                '<option value="file">Adjuntar Archivo</option>'+
+                              '</select>'+
+                            '</div>'+
+                          '</div>'+
+                          '<div class="row">'+
+                            '<div class="col-md-12">'+
+                              '<p style="padding: 2px"></p>'+
+                              '<div id="component_'+cantaddBlock+'">'+
+
+                              '</div>'+
+                              '<hr>'+
+                              '<div class="footer">'+
+                                  '<div class="row">'+
+                                      '<div class="col-md-5">'+
+
+                                      '</div>'+
+                                      '<div class="col-md-6">'+
+
+                                      '</div>'+
+                                      '<div class="col-md-1 float-right">'+
+                                          '<button type="button" class="btn btn-outline-success btn-circle btn-sm" onclick="addBlock()"><i class="fa fa-plus"></i></button>'+
+                                      '</div>'+
+                                  '</div>'+
+                              '</div>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>';
+      
+                  // console.log(dato);
+
+      el.innerHTML = dato;
+
+
+      // el.style.backgroundColor = 'salmon';
+      // el.style.width = '150px';
+      // el.style.height = '150px';
+
+      // ✅ add element to DOM
+      const box = document.getElementById('cuerpos_form');
+      box.appendChild(el);
+
+      cantaddBlock++;
     }
 
+    // Make the dashboard widgets sortable Using jquery UI
+  // $('.connectedSortable').sortable({
+  //   placeholder: 'sort-highlight',
+  //   connectWith: '.connectedSortable',
+  //   handle: '.card-header, .nav-tabs',
+  //   forcePlaceholderSize: true,
+  //   zIndex: 999999
+  // })
+  // $('.connectedSortable .card-header').css('cursor', 'move')
 
 
-    // ✅ Create element
-    const el = document.createElement('div');
+  $(".sortable1").sortable({
+    items: ".s1"
+  });
 
-    el.addEventListener('click', function handleClick(event) {
-        console.log('element clicked 🎉🎉🎉', event);
-    });
+  $(".sortable1").disableSelection();
 
-    // ✅ Add text content to element
-    el.textContent = 'Hello world';
+  $(".sortable1").on("sortstop", function(event, ui) {
+    alert('ordenar detener a los padres');
+    console.log('sortstop padres Evento =', event, ' interfaz de usuario = ', ui);
+    console.log(ui.item);
+    if ($(ui.item).hasClass('s1')) {
 
-    // ✅ Or set the innerHTML of the element
-    // el.innerHTML = `<span>Hello world</span>`;
+      console.log($(ui.item).hasClass('s1'));
+      console.log($(ui.item));
 
-    el.style.backgroundColor = 'salmon';
-    el.style.width = '150px';
-    el.style.height = '150px';
+      alert('es el elemento principal que se acaba de mover. Aquí puede hacer las cosas específicas de los elementos ordenables principales.');
+    } 
+    /*else {
+      console.log('it is child');
+    }*/
+    //do sort of parents
+  });
 
-    // ✅ add element to DOM
-    const box = document.getElementById('cuerpos_form');
-    box.appendChild(el);
+
+  //children
+  // $(".sortable2").sortable({
+  //   items: ".s2"
+  // });
+
+  // $(".sortable2").disableSelection();
+
+  // $(".sortable2").on("sortstop", function(event, ui) {
+  //   alert('sortstop children');
+  //   console.log('sortstop children Event = ', event, '  ui = ', ui);
+  //   //do sort of childrens
+  // });
+
+
+
+
 
 
 
