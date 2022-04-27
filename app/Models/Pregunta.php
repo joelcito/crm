@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ValorCombo extends Model
+class Pregunta extends Model
 {
     use HasFactory;
-    
+
     use SoftDeletes;
 
     protected $fillable = [
@@ -17,10 +17,11 @@ class ValorCombo extends Model
         'modificador_id',
         'eliminador_id',
         'formulario_id',
-        'valor',
-        'estado',
+        'componente_id',
+        'nombre',
+        'requerido',
+        'descripcion',
         'estado',
         'deleted_at',
     ];
-    
 }

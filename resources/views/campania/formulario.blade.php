@@ -59,13 +59,13 @@ ol > li {
 }
 
 form {
-	width: 100%;
+	/* width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	flex-direction: column;
-
-	padding: 0 1rem;
+	padding: 0 1rem; */
+  
 	/* margin: 1rem 0; */
 }
 ul,
@@ -359,7 +359,7 @@ p {
                     </div>
                 </div>
                 <div class="card-body">
-                  {{-- <form action="{{ url('Campania/guardaFormulario') }}" method="post" > --}}
+                  <form action="{{ url('Formulario/guardaFormulario') }}" method="post" target="_target">
                     @csrf
                     <div class="row">
                       <div class="col-md-12">
@@ -381,10 +381,10 @@ p {
                           <div style="padding: 25px;">
                             <div class="row">
                               <div class="col-md-9">
-                                <input type="text" id="nombre_pregunta" name="nombre_pregunta" class="boredes-cajas" placeholder="Nombre de la pregunta"/>
+                                <input type="text" id="" name="nombre_pregunta[]" class="boredes-cajas" placeholder="Nombre de la pregunta"/>
                               </div>
                               <div class="col-md-3">
-                                <select name="" id="" class="form-control" onchange="addComponent(this,1)">
+                                <select name="componente_tipo[]" id="" class="form-control" onchange="addComponent(this,1)">
                                   <option value="select">Seleccion Unica</option>
                                   <option value="checkbox">Seleccion Multiple</option>
                                   <option value="input">Respuesta Corta</option>
@@ -427,7 +427,7 @@ p {
                         <button class="btn btn-outline-success btn-circle btn-block">GENERAR FORMULARIO</button>
                       </div>
                     </div>
-                  {{-- </form> --}}
+                  </form>
                 </div>
             </div>
         </div>
@@ -463,13 +463,13 @@ p {
         console.log(type);
 
         if(type == 'input'){
-            var component =  '<input type="text" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
+            var component =  '<input type="text" name="input_'+bloque+'[]" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
         }else if(type == 'select'){
-            var component =  '<ul  id="select_lista_'+bloque+'"><li><input type="text" class="boredes-cajas" value="Opcion 1"/></li></ul><button type="button" class="text-info" style="border:none;outline: none;" onclick="addOptionSelect('+bloque+')">Adicionar opcion</button>';
+            var component =  '<ul  id="select_lista_'+bloque+'"><li><input type="text" name="selec_'+bloque+'[]" class="boredes-cajas" value="Opcion 1"/></li></ul><button type="button" class="text-info" style="border:none;outline: none;" onclick="addOptionSelect('+bloque+')">Adicionar opcion</button>';
         }else if(type == 'taxtarea'){
-            var component =  '<textarea class="boredes-cajas" name="" id="" cols="30" rows="2" placeholder="Respuesta Larga"></textarea>';
+            var component =  '<textarea class="boredes-cajas" name="textarea_'+bloque+'[]" id="" cols="30" rows="2" placeholder="Respuesta Larga"></textarea>';
         }else if(type == 'file'){
-            var component =  '<div class="row"><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Cantidad de archivos requeridos"/></div><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Tamaño maximo del archivo"/></div></div>';
+            var component =  '<div class="row"><div class="col-md-4"><input type="number" name="checkbox_'+bloque+'[]" class="boredes-cajas" placeholder="Cantidad de archivos requeridos"/></div><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Tamaño maximo del archivo"/></div></div>';
         }else{
             var component =  '<ul  id="check_lista_'+bloque+'"><li><input type="text" class="boredes-cajas" value="Check 1"/></li></ul><button type="button"  class="text-info" style="border:none;outline: none;" onclick="addOptionCheck('+bloque+')">Adicionar Check</button>';
         }
@@ -490,7 +490,7 @@ p {
 
       const optionid = "option_"+cantaddOptionSelect;
 
-      $("#select_lista_"+bloque).append("<li id="+optionid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Opcion "+cantaddOptionSelect+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItem("+listid.toString()+","+optionid.toString()+")'></i></div></div></li>");
+      $("#select_lista_"+bloque).append("<li id="+optionid+"><div class='row'><div class='col-md-11'><input type='text' name='selec_"+bloque+"[]' class='boredes-cajas' value='Opcion "+cantaddOptionSelect+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItem("+listid.toString()+","+optionid.toString()+")'></i></div></div></li>");
 
       console.log(listid);
       console.log(optionid);
@@ -525,7 +525,7 @@ p {
 
         const optionCheckid = "optionCehck_"+cantaddOptionCheck;
 
-        $("#check_lista_"+bloque).append("<li id="+optionCheckid+"><div class='row'><div class='col-md-11'><input type='text' class='boredes-cajas' value='Check "+cantaddOptionCheck+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItemCheck("+listidCheck.toString()+","+optionCheckid.toString()+")'></i></div></div></li>");
+        $("#check_lista_"+bloque).append("<li id="+optionCheckid+"><div class='row'><div class='col-md-11'><input type='text' name='checkbox_"+bloque+"[]' class='boredes-cajas' value='Check "+cantaddOptionCheck+"'/></div><div class='col-md-1'><p style='padding:1px;'></p><i class='fa fa-window-close' onclick='removeItemCheck("+listidCheck.toString()+","+optionCheckid.toString()+")'></i></div></div></li>");
     }
 
     function removeItemCheck(listid, li) {
@@ -563,10 +563,10 @@ p {
                         '<div style="padding: 25px;">'+
                           '<div class="row">'+
                             '<div class="col-md-9">'+
-                              '<input type="email" id="email" class="boredes-cajas" placeholder="Nombre de la pregunta"/>'+
+                              '<input type="text" id="nombre_pregunta" name="nombre_pregunta[]" class="boredes-cajas" placeholder="Nombre de la pregunta"/>'+
                             '</div>'+
                             '<div class="col-md-3">'+
-                              '<select name="" id="" class="form-control" onchange="addComponent(this, '+cantaddBlock+')">'+
+                              '<select name="componente_tipo[]" id="" class="form-control" onchange="addComponent(this, '+cantaddBlock+')">'+
                                 '<option value="select">Seleccion Unica</option>'+
                                 '<option value="checkbox">Seleccion Multiple</option>'+
                                 '<option value="input">Respuesta Corta</option>'+

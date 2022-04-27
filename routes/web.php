@@ -28,5 +28,7 @@ Route::get('Campania/Listado', 'CampaniaController@listado');
 Route::post('Campania/guarda', 'CampaniaController@guarda');
 Route::post('Campania/ajaxListado', 'CampaniaController@ajaxListado');
 Route::get('Campania/formulario', 'CampaniaController@formulario');
-Route::post('Campania/guardaFormulario', 'CampaniaController@guardaFormulario');
+
+// FORMULARIO
+Route::post('Formulario/guardaFormulario', 'FormularioController@guardaFormulario');
 

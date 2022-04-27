@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormulariosTable extends Migration
+class CreatePreguntasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFormulariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('formularios', function (Blueprint $table) {
+        Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('creador_id')->nullable();
             $table->foreign('creador_id')->references('id')->on('users');
@@ -21,17 +21,13 @@ class CreateFormulariosTable extends Migration
             $table->foreign('modificador_id')->references('id')->on('users');
             $table->unsignedBigInteger('eliminador_id')->nullable();
             $table->foreign('eliminador_id')->references('id')->on('users');
-            // $table->unsignedBigInteger('componente_id')->nullable();
-            // $table->foreign('componente_id')->references('id')->on('componentes');
-            // $table->unsignedBigInteger('respuesta_id')->nullable();
-            // $table->foreign('respuesta_id')->references('id')->on('respuestas');
-            // $table->unsignedBigInteger('campania_id')->nullable();
-            // $table->foreign('campania_id')->references('id')->on('campanias');
+            $table->unsignedBigInteger('componente_id')->nullable();
+            $table->foreign('componente_id')->references('id')->on('componentes');
+            $table->unsignedBigInteger('formulario_id')->nullable();
+            $table->foreign('formulario_id')->references('id')->on('formularios');
             $table->string('nombre')->nullable();
-            $table->string('descripcion')->nullable();
-            // $table->string('requirido',1)->nullable();
-            // $table->text('pregunta')->nullable();
-            // $table->text('nombre')->nullable();
+            $table->string('requerido',1)->nullable();
+            $table->text('descripcion')->nullable();
             $table->string('estado')->nullable();
             $table->datetime('deleted_at')->nullable();
             $table->timestamps();
@@ -45,6 +41,6 @@ class CreateFormulariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formularios');
+        Schema::dropIfExists('preguntas');
     }
 }

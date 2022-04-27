@@ -14,7 +14,7 @@ class AddAsignacionIdToFormularios extends Migration
     public function up()
     {
         Schema::table('formularios', function (Blueprint $table) {
-            $table->unsignedBigInteger('asignacion_id')->nullable()->after('campania_id');
+            $table->unsignedBigInteger('asignacion_id')->nullable()->after('eliminador_id');
             $table->foreign('asignacion_id')->references('id')->on('asignaciones');
         });
     }
