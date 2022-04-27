@@ -26,6 +26,8 @@ class FormularioController extends Controller
         $preguntas = $request->input('nombre_pregunta');
 
         foreach($componetes as $key => $co){
+
+            // dd($request->all());
             
             $pregunta  = new Pregunta();
 
@@ -38,11 +40,24 @@ class FormularioController extends Controller
 
             if($co == "select" || $co == "checkbox" ){
 
-                $valorCombo = new ValorCombo();
+                $multiple = $co."_".($key+1);
+                
+                echo strval($multiple);
 
-                $valorCombo->valor = 
+                $valoresMultiples = $request->input("$multiple");
 
-                $valorCombo->save();
+                // dd($valoresMultiples);
+
+                foreach($valoresMultiples as $m){
+
+                    $valorCombo = new ValorCombo();
+
+                    $valorCombo->valor = $m;
+                    $valorCombo->pregunta_id = $pregunta->id;
+                    $valorCombo->formulario_id = $formulario->id;
+
+                    $valorCombo->save();
+                }
                 
             }else{
 

@@ -1,8 +1,13 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+{{-- <aside class="main-sidebar sidebar-dark-primary elevation-4"> --}}
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: #2E5882; color: white;">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="{{ url('/') }}" class="brand-link">
+      <img src="{{ asset('dist/img/logo1.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <div>
+        <span class="brand-text font-weight-light bg-white" style="padding: 6px; border-radius:5px;">
+          <img src="{{ asset('dist/img/logo_unandes.png') }}" alt="" width="120" >
+        </span>
+      </div>
     </a>
 
     <!-- Sidebar -->
@@ -148,24 +153,60 @@
                   <p>Lista de Campanñas</p>
                 </a>
               </li>
-              {{-- <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+              <li class="nav-item">
+                <a href="{{ url('Persona/listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
+                  <p>Lista de Clientes</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lista de Vendedores</p>
                 </a>
               </li> --}}
-              {{-- <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                VENDEDORES
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
+                  <p>Vendedores</p>
                 </a>
-              </li> --}}
-              {{-- <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                CONFIGURACIONES
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('Campania/Listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
+                  <p>Lista de Campanñas</p>
                 </a>
-              </li> --}}
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lista de Vendedores</p>
+                </a>
+              </li>
             </ul>
           </li>
 

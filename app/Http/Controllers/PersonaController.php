@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PersonaController extends Controller
 {
+
+    public function listado(Request $request){
+
+        return view('persona.listado');
+        
+    }
     /**
      * Display a listing of the resource.
      *

@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class VendedorController extends Controller
 {
+    
+    public function vendedores(Request $request){
+        return view('vendedor.vendedores');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //

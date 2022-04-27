@@ -32,3 +32,8 @@ Route::get('Campania/formulario', 'CampaniaController@formulario');
 // FORMULARIO
 Route::post('Formulario/guardaFormulario', 'FormularioController@guardaFormulario');
 
+// VENDEDORES
+Route::get('Vendedor/vendedores', 'VendedorController@vendedores');
+
+// PERSONA
+Route::get('Persona/listado', 'PersonaController@listado');
