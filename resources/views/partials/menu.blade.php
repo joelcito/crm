@@ -150,7 +150,7 @@
               <li class="nav-item">
                 <a href="{{ url('Campania/Listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Campanñas</p>
+                  <p>Lista de Campañas</p>
                 </a>
               </li>
               <li class="nav-item">

@@ -232,7 +232,8 @@
         }
 
         function formulario(){
-			window.location.href = "{{ url('Campania/formulario') }}";
+			// window.location.href = "{{ url('Campania/formulario') }}";
+			window.location.href = "{{ url('Campania/home') }}";
         }
     </script>
 @endsection

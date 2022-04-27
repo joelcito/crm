@@ -21,6 +21,10 @@ class CampaniaController extends Controller
 
      }
 
+     public function home(){
+         return view('campania.home');
+     }
+
     public function guarda(Request $request){
 
         if($request->ajax()){
