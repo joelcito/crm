@@ -73,11 +73,7 @@ class CampaniaController extends Controller
 
     }
 
-    public function formulario(Request $request){
-
-        return view('campania.formulario');
-        
-    }
+   
 
     public function guardaFormulario(Request $request){
 

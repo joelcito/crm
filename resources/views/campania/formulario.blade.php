@@ -375,6 +375,7 @@ p {
                         </div>
                       </div>
                     </div>
+                    <input type="text" value="{{ $campania_id }}" name="campania_id">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="title">
@@ -385,11 +386,16 @@ p {
                               </div>
                               <div class="col-md-3">
                                 <select name="componente_tipo[]" id="" class="form-control" onchange="addComponent(this,1)">
-                                  <option value="select">Seleccion Unica</option>
+                                  <option>Seleccione una opcion</option>
+
+                                  @foreach ($componentes as $con )
+                                    <option value="{{ $con->nombre }}">{{ $con->descripcion }}</option>
+                                  @endforeach
+                                  {{-- <option value="select">Seleccion Unica</option>
                                   <option value="checkbox">Seleccion Multiple</option>
                                   <option value="input">Respuesta Corta</option>
                                   <option value="taxtarea">Respuesta Largo</option>
-                                  <option value="file">Adjuntar Archivo</option>
+                                  <option value="file">Adjuntar Archivo</option> --}}
                                 </select>
                               </div>
                             </div>
@@ -466,7 +472,7 @@ p {
             var component =  '<input type="text" name="input_'+bloque+'[]" class="boredes-cajas" placeholder="ESCRIBA SU RESPUESTA"/>';
         }else if(type == 'select'){
             var component =  '<ul  id="select_lista_'+bloque+'"><li><input type="text" name="select_'+bloque+'[]" class="boredes-cajas" value="Opcion 1"/></li></ul><button type="button" class="text-info" style="border:none;outline: none;" onclick="addOptionSelect('+bloque+')">Adicionar opcion</button>';
-        }else if(type == 'taxtarea'){
+        }else if(type == 'textarea'){
             var component =  '<textarea class="boredes-cajas" name="textarea_'+bloque+'[]" id="" cols="30" rows="2" placeholder="Respuesta Larga"></textarea>';
         }else if(type == 'file'){
             var component =  '<div class="row"><div class="col-md-4"><input type="number" name="checkbox_'+bloque+'[]" class="boredes-cajas" placeholder="Cantidad de archivos requeridos"/></div><div class="col-md-4"><input type="number" class="boredes-cajas" placeholder="Tamaño maximo del archivo"/></div></div>';
@@ -550,6 +556,14 @@ p {
           console.log('element clicked 🎉🎉🎉', event);
       });
 
+      var componentes = @json($componentes);
+
+      var option = "<option>Seleccione una opcion</option>";
+
+      for (var i = 0; i < componentes.length; i++) {
+        option = option + '<option value="'+componentes[i]['nombre']+'">'+componentes[i]['descripcion']+'</option>';
+      }
+
       // ✅ Add text content to element
       // var content = "<input type='text' class='form-control'/>"
       // el.textContent = content;
@@ -567,11 +581,12 @@ p {
                             '</div>'+
                             '<div class="col-md-3">'+
                               '<select name="componente_tipo[]" id="" class="form-control" onchange="addComponent(this, '+cantaddBlock+')">'+
-                                '<option value="select">Seleccion Unica</option>'+
-                                '<option value="checkbox">Seleccion Multiple</option>'+
-                                '<option value="input">Respuesta Corta</option>'+
-                                '<option value="taxtarea">Respuesta Largo</option>'+
-                                '<option value="file">Adjuntar Archivo</option>'+
+                                // '<option value="select">Seleccion Unica</option>'+
+                                // '<option value="checkbox">Seleccion Multiple</option>'+
+                                // '<option value="input">Respuesta Corta</option>'+
+                                // '<option value="taxtarea">Respuesta Largo</option>'+
+                                // '<option value="file">Adjuntar Archivo</option>'+
+                                option+
                               '</select>'+
                             '</div>'+
                           '</div>'+

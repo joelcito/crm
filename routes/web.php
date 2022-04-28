@@ -28,11 +28,12 @@ Route::get('Campania/Listado', 'CampaniaController@listado');
 Route::post('Campania/guarda', 'CampaniaController@guarda');
 Route::post('Campania/ajaxListado', 'CampaniaController@ajaxListado');
 Route::get('Campania/home', 'CampaniaController@home');
-Route::get('Campania/formulario', 'CampaniaController@formulario');
 
 // FORMULARIO
 Route::post('Formulario/guardaFormulario', 'FormularioController@guardaFormulario');
 Route::get('Formulario/listado', 'FormularioController@listado');
+Route::get('Formulario/formulario/{campania_id}', 'FormularioController@formulario');
+
 
 // VENDEDORES
 Route::get('Vendedor/vendedores', 'VendedorController@vendedores');

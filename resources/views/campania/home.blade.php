@@ -46,8 +46,6 @@
   </div>
 </div>
 
-
-
 <div class="row">
   <div class="col-md-12 text-center">
     <div class="callout callout-info">
@@ -62,7 +60,7 @@
 
 <div class="row">
   <div class="col-12 col-sm-6 col-md-3">
-    <a href="{{ url('Campania/formulario') }}" style="">
+    <a href="{{ url('Formulario/formulario',[1]) }}" style="">
       <div class="info-box">
         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>
         <div class="info-box-content">

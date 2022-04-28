@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pregunta;
+use App\Models\Componente;
 use App\Models\Formulario;
 use App\Models\ValorCombo;
 use Illuminate\Http\Request;
+use App\Models\FormularioCampania;
 use Illuminate\Support\Facades\Auth;
 
 class FormularioController extends Controller
 {
 
     public function guardaFormulario(Request $request){
-
 
         $formulario = new Formulario();
 
@@ -27,12 +28,14 @@ class FormularioController extends Controller
 
         foreach($componetes as $key => $co){
 
-            // dd($request->all());
-            
+            $componente = Componente::where('nombre',$co)
+                                    ->first();
+
             $pregunta  = new Pregunta();
 
             $pregunta->nombre           = $preguntas[$key];
             $pregunta->formulario_id    = $formulario->id;
+            $pregunta->componente_id    = $componente->id;
 
             echo $co." ".$preguntas[$key]."<br>";
 
@@ -45,8 +48,6 @@ class FormularioController extends Controller
                 echo strval($multiple);
 
                 $valoresMultiples = $request->input("$multiple");
-
-                // dd($valoresMultiples);
 
                 foreach($valoresMultiples as $m){
 
@@ -64,9 +65,23 @@ class FormularioController extends Controller
             }
         }
 
+        $formularioCampania = new FormularioCampania();
+
+        $formularioCampania->campania_id    = $request->input("campania_id");
+        $formularioCampania->formulario_id  = $formulario->id;
+
+        $formularioCampania->save();
+
         dd($request->all());
 
-        // dd($formulario->id);
+    }
+
+    public function formulario(Request $request, $campania_id){
+
+        $componentes = Componente::all();
+
+        return view('campania.formulario')->with(compact('campania_id', 'componentes'));
+        
     }
     /**
      * Display a listing of the resource.
