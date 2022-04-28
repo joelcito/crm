@@ -6,7 +6,7 @@
 
 <div class="card">
 <div class="card-header">
-<h3 class="card-title">Listado de Clientes</h3>
+<h3 class="card-title">Listado de formularios</h3>
 <div class="card-tools">
 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 <i class="fas fa-minus"></i>
@@ -24,10 +24,10 @@
 #
 </th>
 <th style="width: 20%">
-Nombre del cliente
+Nombre del Formulario
 </th>
 <th style="width: 30%">
-Vendedor Asignado
+Campaña
 </th>
 <th>
     Progreso
@@ -46,7 +46,7 @@ Estado
 </td>
 <td>
 <a>
-Maria Lozada
+    Formulario  de conteo
 </a>
 <br />
 <small>
@@ -54,20 +54,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-</li>
-</ul>
+    Campaña de conteo
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -105,7 +92,7 @@ Delete
 </td>
 <td>
 <a>
-Juan Perez
+    Formulario Recogida y análisis
 </a>
 <br />
 <small>
@@ -113,14 +100,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-</li>
-</ul>
+    Campaña Recogida y análisis de datos
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -158,7 +138,7 @@ Delete
 </td>
 <td>
 <a>
-    Mario Turco
+    Formulario de investigación
 </a>
 <br />
 <small>
@@ -166,17 +146,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-</li>
-</ul>
+    Campaña de investigación y análisis del público objetivo.
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -214,7 +184,7 @@ Delete
 </td>
 <td>
 <a>
-    Julio Cesar
+    Formulario  Elaboración y planificación de informes.
 </a>
 <br />
 <small>
@@ -222,20 +192,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-</li>
-</ul>
+    Campaña de Elaboración y planificación de informes.
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -273,7 +230,7 @@ Delete
 </td>
 <td>
 <a>
-    Mariana Salazar
+    Formulario Desarrollo de estrategias de promoción de la marca de la empresa.
 </a>
 <br />
 <small>
@@ -281,17 +238,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar5.png">
-</li>
-</ul>
+    Campaña de Desarrollo de estrategias de promoción de la marca de la empresa.
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -329,7 +276,7 @@ Delete
 </td>
 <td>
 <a>
-    Violeta Sanches
+    Formulario de Auditoría de ventas
 </a>
 <br />
 <small>
@@ -337,20 +284,7 @@ Created 01.01.2019
 </small>
 </td>
 <td>
-<ul class="list-inline">
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-</li>
-<li class="list-inline-item">
-<img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-</li>
-</ul>
+    Campaña de Auditoría de ventas y canales de venta.
 </td>
 <td class="project_progress">
 <div class="progress progress-sm">
@@ -382,7 +316,7 @@ Delete
 </a>
 </td>
 </tr>
-<tr>
+{{-- <tr>
 <td>
 #
 </td>
@@ -549,7 +483,7 @@ Edit
 Delete
 </a>
 </td>
-</tr>
+</tr> --}}
 </tbody>
 </table>
 </div>

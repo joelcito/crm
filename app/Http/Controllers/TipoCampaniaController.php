@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TipoCampaniaController extends Controller
 {
+
+    public function listado(Request $request){
+
+        return view('tipo_campania.listado');
+        
+    }
     /**
      * Display a listing of the resource.
      *

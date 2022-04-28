@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class MedioPublicitarioController extends Controller
 {
+
+    public function listado(Request $request){
+        return view('medio_publicitario.listado');
+    }
     /**
      * Display a listing of the resource.
      *

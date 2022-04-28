@@ -73,9 +73,9 @@ class FormularioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function listado()
     {
-        //
+        return view('formulario.listado');
     }
 
     /**

@@ -159,12 +159,18 @@
                   <p>Lista de Clientes</p>
                 </a>
               </li>
-              {{-- <li class="nav-item">
-                <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
+              <li class="nav-item">
+                <a href="{{ url('Formulario/listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Vendedores</p>
+                  <p>Listado de formularios</p>
                 </a>
-              </li> --}}
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('TipoCampania/listado') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tipo de campaña</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -180,7 +186,7 @@
               <li class="nav-item">
                 <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Vendedores</p>
+                  <p>Listado de vendedores</p>
                 </a>
               </li>
             </ul>
@@ -196,15 +202,62 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('Campania/Listado') }}" class="nav-link">
+                <a href="{{ url('MedioSeguimietno/listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Campanñas</p>
+                  <p>Medio de Seguimiento</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('Vendedor/vendedores') }}" class="nav-link">
+                <a href="{{ url('MedioPublicitario/listado') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Vendedores</p>
+                  <p>Medio Publicitario</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    ESTADOS
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('EstadoSeguimiento/listado') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Estado Seguimiento</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('EstadoFinal/listado') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Estado Final</p>
+                    </a>
+                  </li>
+                  {{-- <li class="nav-item">
+                    <a href="pages/charts/uplot.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>uPlot</p>
+                    </a>
+                  </li> --}}
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                ASIGNACIONES
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('Asignacion/listado') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mis Asignaciones</p>
                 </a>
               </li>
             </ul>

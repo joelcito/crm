@@ -2522,7 +2522,7 @@ textarea.form-control {
     margin-right: 0.25rem;
     margin-left: 0;
   }
-  .form-inline .custom-control {
+  . .custom-control {
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: center;

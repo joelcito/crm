@@ -259,8 +259,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-{{-- <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script> --}}
-<script src="{{ asset('dist/js/pages/dashboard_modificado.js') }}"></script>
+{{-- <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>   --}}
 {{-- para las alertas --}}
 {{-- <script src="{{ asset('sweetalert2.all.min.js') }}"></script> --}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -201,6 +201,9 @@
 
                             }, 3000);
 
+                            // window.location.reload("{{ url('Campania/home') }}");
+                            window.location.href = "{{ url('Campania/home')}}"
+
                             ajaxListado();
 
                         }
@@ -223,7 +226,7 @@
                 success: function(data) {
 
                     $('#tabla-campania').html(data);
-
+                    
                 },
                 error: function(error){
                     console.log(error);

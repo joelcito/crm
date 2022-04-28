@@ -4,7 +4,41 @@
 @section('content')
   <div class="row">
     <div class="col-md-12">
-      <h5 class="text-center">BIENVENIDO AL SISTEMA <span class="text-info">JOEL FLORES</span></h5>
+        <div class="card card-widget widget-user">
+          <div class="widget-user-header bg-success">
+            <h3 class="widget-user-username">Bienvenido</h3>
+            <h5 class="widget-user-desc">Joel Flores Quispe</h5>
+          </div>
+          <div class="widget-user-image">
+            <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+          </div>
+          <div class="card-footer">
+            {{-- <div class="row">
+              <div class="col-sm-4 border-right">
+                <div class="description-block">
+                  <h5 class="description-header">30</h5>
+                  <span class="description-text">VENTAS</span>
+                </div>
+              
+              </div>
+              
+              <div class="col-sm-4 border-right">
+                <div class="description-block">
+                  <h5 class="description-header">5</h5>
+                  <span class="description-text">TAREAS</span>
+                </div>
+              
+              </div>
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header">35</h5>
+                  <span class="description-text">ASIGANCIONES</span>
+                </div>
+              </div>
+            </div> --}}
+          </div>
+        </div>
     </div>
   </div>
 	<!-- Small boxes (Stat box) -->
@@ -73,9 +107,9 @@
       <!-- /.row -->
       <div class="row">
         <div class="col-md-6">
-          <div class="card card-success">
+          <div class="card card-danger">
             <div class="card-header">
-              <h3 class="card-title">Bar Chart</h3>
+              <h3 class="card-title">Donut Chart</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
@@ -86,9 +120,7 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="chart">
-                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
+              <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
             </div>
           </div>
         </div>
@@ -130,6 +162,14 @@
             </div>
             <!-- /.card-body -->
           </div>
+        </div>
+      </div>
+      <div class="row">
+
+        
+
+        <div class="col-md-6">
+
         </div>
       </div>
       <!-- Main row -->

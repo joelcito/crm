@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class MedioSeguimientoController extends Controller
 {
+
+    public function listado(Request $request){
+
+        return view('medio_seguimiento.listado');
+        
+    }
     /**
      * Display a listing of the resource.
      *
