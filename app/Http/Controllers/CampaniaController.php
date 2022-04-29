@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campania;
+use App\Models\Formulario;
+use App\Models\FormularioCampania;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
@@ -22,7 +24,10 @@ class CampaniaController extends Controller
      }
 
      public function home(){
-         return view('campania.home');
+         
+        $formularios = FormularioCampania::where('campania_id',1)->get();
+
+        return view('campania.home')->with(compact('formularios'));
      }
 
     public function guarda(Request $request){

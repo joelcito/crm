@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ValorComboController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +15,7 @@ class ValorComboController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

@@ -24,4 +24,14 @@ class Pregunta extends Model
         'estado',
         'deleted_at',
     ];
+
+    public function valoresCombo()
+    {
+        return $this->hasMany('App\Models\ValorCombo');
+    }
+
+    public function componente()
+    {
+        return $this->belongsTo('App\Models\Componente', 'componente_id');
+    }
 }

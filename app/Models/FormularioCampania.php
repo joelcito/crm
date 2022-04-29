@@ -21,4 +21,16 @@ class FormularioCampania extends Model
         'estado',
         'deleted_at',
     ];
+
+    public function formulario(){
+
+        return $this->belongsTo('App\Models\Formulario', 'formulario_id');
+
+    }
+
+    public function campania(){
+
+        return $this->belongsTo('App\Models\Formulario', 'campania_id');
+        
+    }
 }

@@ -535,71 +535,79 @@
 <div class="card-body p-0">
 <div class="table-responsive">
 <table class="table m-0">
-<thead>
+  <thead>
 <tr>
-<th>Orden ID</th>
-<th>Tarea</th>
-<th>Prioridad</th>
-{{-- <th>Popularity</th> --}}
+  <th>Orden ID</th>
+  <th>Tarea</th>
+  <th>Prioridad</th>
+  {{-- <th>Popularity</th> --}}
 </tr>
 </thead>
 <tbody>
-<tr>
+  @foreach ($formularios as $f)
+    <tr>
+      <td>{{ $f->formulario->nombre }}</td>
+      <td>{{ $f->formulario->campania }}</td>
+      <td><a href="{{ url('Formulario/respuestaFormulario', [$f->campania_id,$f->formulario_id]) }}" class="btn btn-success btn-icon"><i class="fa fa-list-alt"></i></a></td>
+      {{-- @dd($f->formulario->nombre) --}}
+    </tr>
+  @endforeach
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR9842</a></td>
 <td>Recogida y análisis de datos</td>
 <td><span class="badge badge-success">Baja</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR1848</a></td>
 <td>Investigación y análisis del público objetivo.</td>
 <td><span class="badge badge-warning">Media</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR7429</a></td>
 <td>Elaboración y planificación de informes.</td>
 <td><span class="badge badge-danger">Alta</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR7429</a></td>
 <td>SDesarrollo de estrategias de promoción de la marca de la empresa.</td>
 <td><span class="badge badge-info">Proceso</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR1848</a></td>
 <td>Auditoría de ventas y canales de venta.</td>
 <td><span class="badge badge-warning">Media</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR7429</a></td>
 <td>iPhone 6 Plus</td>
 <td><span class="badge badge-danger">Alta</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-</td> --}}
-</tr>
-<tr>
+</td>
+</tr> --}}
+{{-- <tr>
 <td><a href="pages/examples/invoice.html">OR9842</a></td>
 <td>Call of Duty IV</td>
 <td><span class="badge badge-success">Baja</span></td>
-{{-- <td>
+<td>
 <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-</td> --}}
-</tr>
+</td>
+</tr> --}}
 </tbody>
 </table>
 </div>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pregunta;
+use App\Models\Respuesta;
 use App\Models\Componente;
 use App\Models\Formulario;
 use App\Models\ValorCombo;
 use Illuminate\Http\Request;
+use App\Models\RespuestaCombo;
 use App\Models\FormularioCampania;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +16,8 @@ class FormularioController extends Controller
 {
 
     public function guardaFormulario(Request $request){
+
+        // dd($request->all());
 
         $formulario = new Formulario();
 
@@ -37,7 +41,7 @@ class FormularioController extends Controller
             $pregunta->formulario_id    = $formulario->id;
             $pregunta->componente_id    = $componente->id;
 
-            echo $co." ".$preguntas[$key]."<br>";
+            // echo $co." ".$preguntas[$key]."<br>";
 
             $pregunta->save();
 
@@ -45,9 +49,11 @@ class FormularioController extends Controller
 
                 $multiple = $co."_".($key+1);
                 
-                echo strval($multiple);
+                // echo strval($multiple);
 
                 $valoresMultiples = $request->input("$multiple");
+
+                // dd($valoresMultiples);
 
                 foreach($valoresMultiples as $m){
 
@@ -72,7 +78,11 @@ class FormularioController extends Controller
 
         $formularioCampania->save();
 
-        dd($request->all());
+        // dd($request->all());
+
+        // return view("campania.home");
+
+        redirect('Campania/home');
 
     }
 
@@ -98,9 +108,15 @@ class FormularioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function respuestaFormulario(Request $request, $campania_id, $formulario_id)
     {
-        //
+        // dd($request->all());
+        $formulario = Formulario::find($formulario_id);
+
+        $preguntas_form = Pregunta::where('formulario_id', $formulario_id)
+                                    ->get();
+
+        return view('formulario.respuesta')->with(compact('campania_id','formulario', 'preguntas_form'));
     }
 
     /**
@@ -109,9 +125,52 @@ class FormularioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardarRespuestaFormulario(Request $request)
     {
-        //
+        
+        $respuestas  = $request->input('respuestas');
+
+        foreach ($respuestas as $key => $r){
+
+            echo $key."<br>";
+
+            $respuesta = new Respuesta();
+
+            $respuesta->pregunta_id = $key;
+
+            if(count($r) > 1){
+                
+                $respuesta->respuesta = json_encode($r);
+
+            }else{
+
+                $respuesta->respuesta = $r[0];
+
+            }
+
+            $respuesta->save();   
+
+            if(count($r) > 1){
+
+                $respuestasCombos = $r;
+
+                foreach($respuestasCombos as $cr){
+
+                    $comres  =  new RespuestaCombo();
+
+                    $comres->respuesta      = $cr;
+                    $comres->respuesta_id   = $respuesta->id;
+
+                    $comres->save();
+
+                }
+            }
+            
+
+        }
+
+        dd($request->all());
+
     }
 
     /**

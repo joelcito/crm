@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pregunta;
-use App\Models\ValorCombo;
+use App\Models\RespuestaCombo;
 use Illuminate\Http\Request;
 
-class PreguntaController extends Controller
+class RespuestaComboController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PreguntaController extends Controller
      */
     public function index()
     {
-        // $pregunta  = new ValorCombo();
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class PreguntaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pregunta  $pregunta
+     * @param  \App\Models\RespuestaCombo  $respuestaCombo
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta)
+    public function show(RespuestaCombo $respuestaCombo)
     {
         //
     }
@@ -53,10 +52,10 @@ class PreguntaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pregunta  $pregunta
+     * @param  \App\Models\RespuestaCombo  $respuestaCombo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pregunta $pregunta)
+    public function edit(RespuestaCombo $respuestaCombo)
     {
         //
     }
@@ -65,10 +64,10 @@ class PreguntaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pregunta  $pregunta
+     * @param  \App\Models\RespuestaCombo  $respuestaCombo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pregunta $pregunta)
+    public function update(Request $request, RespuestaCombo $respuestaCombo)
     {
         //
     }
@@ -76,10 +75,10 @@ class PreguntaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pregunta  $pregunta
+     * @param  \App\Models\RespuestaCombo  $respuestaCombo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pregunta $pregunta)
+    public function destroy(RespuestaCombo $respuestaCombo)
     {
         //
     }

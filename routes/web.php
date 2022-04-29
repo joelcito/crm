@@ -33,6 +33,8 @@ Route::get('Campania/home', 'CampaniaController@home');
 Route::post('Formulario/guardaFormulario', 'FormularioController@guardaFormulario');
 Route::get('Formulario/listado', 'FormularioController@listado');
 Route::get('Formulario/formulario/{campania_id}', 'FormularioController@formulario');
+Route::get('Formulario/respuestaFormulario/{campania_id}/{formulario_id}', 'FormularioController@respuestaFormulario');
+Route::post('Formulario/guardarRespuestaFormulario', 'FormularioController@guardarRespuestaFormulario');
 
 
 // VENDEDORES

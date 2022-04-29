@@ -26,17 +26,17 @@ class Campania extends Model
         'deleted_at',
     ];
     
-    public function guarda($datos){
+    // public function guarda($datos){
 
-        // var_dump($datos);
+    //     // var_dump($datos);
 
-        dd($datos->nombre_campania);
-        // dd($datos->nombre_campania);
+    //     dd($datos->nombre_campania);
+    //     // dd($datos->nombre_campania);
 
-        $campania = new Campania();
+    //     $campania = new Campania();
 
-        $campania->nombre = $datos->input('nombre_campania');
+    //     $campania->nombre = $datos->input('nombre_campania');
 
-        $campania->save();
-    }
+    //     $campania->save();
+    // }
 }

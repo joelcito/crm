@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+// namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,6 +17,7 @@ class ValorCombo extends Model
         'creador_id',
         'modificador_id',
         'eliminador_id',
+        'pregunta_id',
         'formulario_id',
         'valor',
         'estado',

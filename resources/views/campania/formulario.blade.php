@@ -367,7 +367,7 @@ p {
                             <div class="border"></div>
                             <h1>
                               <div>
-                                  <input type="text" id="text" name="nombre_formulario" id="nombre_formulario" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
+                                  <input type="text" name="nombre_formulario" id="nombre_formulario" class="boredes-cajas" placeholder="TITULO DEL FORMULARIO"/>
                                   <p style="padding: 2px"></p>
                                   <textarea class="boredes-cajas" name="descripcion_formulario" id="descripcion_formulario" cols="30" rows="2" placeholder="DESCRIPCION DEL FORMULARIO" ></textarea>
                               </div>
@@ -375,7 +375,7 @@ p {
                         </div>
                       </div>
                     </div>
-                    <input type="text" value="{{ $campania_id }}" name="campania_id">
+                    <input type="hidden" value="{{ $campania_id }}" name="campania_id">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="title">

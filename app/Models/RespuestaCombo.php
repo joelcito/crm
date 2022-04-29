@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Respuesta extends Model
+class RespuestaCombo extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,11 @@ class Respuesta extends Model
         'creador_id',
         'modificador_id',
         'eliminador_id',
+        'formulario_id',
+        'respuesta_id',
         'respuesta',
         'estado',
         'deleted_at',
     ];
-    
+
 }
